@@ -1,0 +1,28 @@
+<!-- templates/index.html -->
+{% extends "layout.html" %}
+{% block title %}Daftar User{% endblock %}
+{% block content %}
+<h1 class="mb-4">Daftar Pengguna</h1>
+<a href="{{ url_for('add') }}" class="btn btn-primary mb-3">+ Tambah User</a>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th><th>Nama</th><th>Email</th><th>Aksi</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in users %}
+    <tr>
+      <td>{{ user[0] }}</td>
+      <td>{{ user[1] }}</td>
+      <td>{{ user[2] }}</td>
+      <td>
+        <a href="{{ url_for('detail', id=user[0]) }}" class="btn btn-info btn-sm">Detail</a>
+        <a href="{{ url_for('update', id=user[0]) }}" class="btn btn-warning btn-sm">Edit</a>
+        <a href="{{ url_for('delete', id=user[0]) }}" class="btn btn-danger btn-sm" onclick="return confirm('Yakin hapus?')">Hapus</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
