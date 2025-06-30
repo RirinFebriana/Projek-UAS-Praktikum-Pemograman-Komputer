@@ -1,0 +1,7 @@
+<h2>Edit User</h2>
+<form method="POST">
+    Nama: <input type="text" name="nama" value="{{ user[1] }}"><br>
+    Email: <input type="email" name="email" value="{{ user[2] }}"><br>
+    <button type="submit">Update</button>
+</form>
+<a href="{{ url_for('index') }}">Kembali</a>
